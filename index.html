@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Copy to Clip-board</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .main {
+        background: lightblue;
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        width: 500px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background: #fff;
+        box-shadow: 0 0 6px gray;
+        border-radius: 6px;
+      }
+
+      .btn {
+        padding: 8px 20px;
+        border-radius: 6px;
+        font-size: 15px;
+        outline: 0;
+        border: 0;
+        box-shadow: 0 0 6px #000;
+        cursor: pointer;
+      }
+      .btn:active {
+        font-size: 14px;
+      }
+      .redeemArea {
+        display: flex;
+        flex-direction: column;
+      }
+      label {
+        font-size: 25px;
+        font-weight: bolder;
+        color: #000;
+        margin-bottom: 5px;
+      }
+      input {
+        font-size: 16px;
+        font-weight: normal;
+        border: 0;
+        outline: 0;
+        color: gray;
+      }
+      input::selection {
+        background: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="container">
+        <div class="btnArea">
+          <button class="btn">Copy</button>
+        </div>
+        <div class="redeemArea">
+          <label>Redeem-Code</label>
+          <input type="text" id="input" value="1234-6547-9850-1246" readonly />
+        </div>
+      </div>
+    </div>
+    <!-- script -->
+    <script>
+      const input = document.querySelector("#input");
+      const btn = document.querySelector(".btn");
+
+      btn.onclick = function () {
+        input.select();
+        document.execCommand("copy");
+        alert("copied");
+      };
+    </script>
+  </body>
+</html>
